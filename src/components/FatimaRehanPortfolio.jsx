@@ -3,7 +3,6 @@ import { useIsMobile } from "../hooks/useIsMobile.js";
 import { useSilverCursor } from "../hooks/useSilverCursor.js";
 import { FilmGrain } from "../overlays/FilmGrain.jsx";
 import { BackgroundStatic } from "../overlays/BackgroundStatic.jsx";
-import { ScanLines } from "../overlays/ScanLines.jsx";
 import { LensFlare } from "../overlays/LensFlare.jsx";
 import { HeroSection } from "../sections/HeroSection.jsx";
 import { AboutSection } from "../sections/AboutSection.jsx";
@@ -143,7 +142,6 @@ export default function FatimaRehanPortfolio() {
 
       <FilmGrain isMobile={isMobile} />
       <BackgroundStatic isMobile={isMobile} />
-      <ScanLines />
       <LensFlare isMobile={isMobile} />
 
       <div style={{ position: "relative", minHeight: "100vh", background: "#0a0a0a" }}>

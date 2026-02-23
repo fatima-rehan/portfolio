@@ -6,6 +6,7 @@ export function HeroSection({ onNavigate, isMobile }) {
   const [fontIndex, setFontIndex] = useState(0);
   const [iconsVisible, setIconsVisible] = useState([false, false, false, false]);
   const [flashCount, setFlashCount] = useState(0);
+  const [activeIcon, setActiveIcon] = useState(null);
 
   const fonts = [
     "'Playfair Display', serif",
@@ -166,11 +167,27 @@ export function HeroSection({ onNavigate, isMobile }) {
               alignItems: "flex-end",
             }}
           >
-        {icons.map((item, i) => (
+        {icons.map((item, i) => {
+          const isActive = isMobile && activeIcon === item.label;
+          return (
           <div
             key={item.label}
             className="clickable hero-nav-icon"
-            onClick={() => item.url ? window.open(item.url, "_blank") : onNavigate(item.target)}
+            onClick={() => {
+              if (isMobile) {
+                setActiveIcon(item.label);
+                setTimeout(() => {
+                  setActiveIcon((current) =>
+                    current === item.label ? null : current
+                  );
+                }, 150);
+              }
+              if (item.url) {
+                window.open(item.url, "_blank");
+              } else {
+                onNavigate(item.target);
+              }
+            }}
             style={{
               display: "flex",
               flexDirection: "column",
@@ -194,6 +211,10 @@ export function HeroSection({ onNavigate, isMobile }) {
                 alignItems: "center",
                 justifyContent: "center",
                 transition: "all 0.2s ease",
+                transform: isActive ? "scale(0.9)" : "scale(1)",
+                filter: isActive
+                  ? "brightness(1.25) drop-shadow(0 0 10px rgba(255,255,255,0.35))"
+                  : "none",
               }}
               {...(!isMobile ? {
                 onMouseEnter: (e) => {
@@ -219,7 +240,7 @@ export function HeroSection({ onNavigate, isMobile }) {
               {item.label}
             </span>
           </div>
-        ))}
+        );})}
           </div>
         )}
       </div>

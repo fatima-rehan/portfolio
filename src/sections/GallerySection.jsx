@@ -2,6 +2,9 @@ import { useRef, useEffect } from "react";
 import { GALLERY_IMAGES } from "../constants/data.js";
 import SilverIcon from "../shared/SilverIcon.jsx";
 
+const FRAME_WIDTH_MOBILE = 200;
+const FRAME_WIDTH_DESKTOP = 300;
+
 export function GallerySection({ onOpenVault, isMobile }) {
   const scrollRef = useRef(null);
   const userScrollingRef = useRef(false);
@@ -9,13 +12,14 @@ export function GallerySection({ onOpenVault, isMobile }) {
   useEffect(() => {
     const el = scrollRef.current;
     if (!el) return;
-    let pos = 0;
     const speed = isMobile ? 0.3 : 0.5;
+    const maxScroll = el.scrollWidth / 2;
     const scroll = () => {
       if (!userScrollingRef.current) {
-        pos += speed;
-        if (pos >= el.scrollWidth / 2) pos = 0;
-        el.scrollLeft = pos;
+        const current = el.scrollLeft;
+        let next = current + speed;
+        if (next >= maxScroll) next = next % maxScroll;
+        el.scrollLeft = next;
       }
       requestAnimationFrame(scroll);
     };
@@ -23,24 +27,24 @@ export function GallerySection({ onOpenVault, isMobile }) {
     return () => cancelAnimationFrame(id);
   }, [isMobile]);
 
-  const handleTouchStart = () => {
+  const scrollBy = (delta) => {
+    const el = scrollRef.current;
+    if (!el) return;
+    userScrollingRef.current = true;
+    const step = isMobile ? FRAME_WIDTH_MOBILE : FRAME_WIDTH_DESKTOP;
+    el.scrollBy({ left: delta * step, behavior: "smooth" });
+    setTimeout(() => {
+      userScrollingRef.current = false;
+    }, 800);
+  };
+
+  const pauseAutoScroll = () => {
     userScrollingRef.current = true;
   };
-  const handleTouchEnd = () => {
+  const resumeAutoScroll = () => {
     setTimeout(() => {
       userScrollingRef.current = false;
     }, 400);
-  };
-  const handleMouseDown = () => {
-    userScrollingRef.current = true;
-  };
-  const handleMouseUp = () => {
-    setTimeout(() => {
-      userScrollingRef.current = false;
-    }, 400);
-  };
-  const handleMouseLeave = () => {
-    userScrollingRef.current = false;
   };
 
   return (
@@ -70,14 +74,38 @@ export function GallerySection({ onOpenVault, isMobile }) {
 
       <div style={{ position: "relative" }}>
         <div
+          className="clickable gallery-arrow gallery-arrow-left"
+          onClick={() => scrollBy(-1)}
+          style={{
+            position: "absolute",
+            left: 0,
+            top: "50%",
+            transform: "translateY(-50%)",
+            zIndex: 3,
+            width: isMobile ? "36px" : "44px",
+            height: isMobile ? "36px" : "44px",
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "center",
+            background: "rgba(0,0,0,0.6)",
+            border: "1px solid rgba(255,255,255,0.15)",
+            borderRadius: "0 8px 8px 0",
+            color: "#e81919",
+            fontSize: isMobile ? "1.2rem" : "1.5rem",
+            WebkitTapHighlightColor: "transparent",
+          }}
+        >
+          ‹
+        </div>
+        <div
           ref={scrollRef}
           className="gallery-strip"
-          onTouchStart={handleTouchStart}
-          onTouchEnd={handleTouchEnd}
-          onTouchCancel={handleTouchEnd}
-          onMouseDown={handleMouseDown}
-          onMouseUp={handleMouseUp}
-          onMouseLeave={handleMouseLeave}
+          onTouchStart={pauseAutoScroll}
+          onTouchEnd={resumeAutoScroll}
+          onTouchCancel={resumeAutoScroll}
+          onMouseDown={pauseAutoScroll}
+          onMouseUp={resumeAutoScroll}
+          onMouseLeave={resumeAutoScroll}
           style={{
             display: "flex",
             width: "100vw",
@@ -227,6 +255,30 @@ export function GallerySection({ onOpenVault, isMobile }) {
               );
             }
           )}
+        </div>
+        <div
+          className="clickable gallery-arrow gallery-arrow-right"
+          onClick={() => scrollBy(1)}
+          style={{
+            position: "absolute",
+            right: 0,
+            top: "50%",
+            transform: "translateY(-50%)",
+            zIndex: 3,
+            width: isMobile ? "36px" : "44px",
+            height: isMobile ? "36px" : "44px",
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "center",
+            background: "rgba(0,0,0,0.6)",
+            border: "1px solid rgba(255,255,255,0.15)",
+            borderRadius: "8px 0 0 8px",
+            color: "#e81919",
+            fontSize: isMobile ? "1.2rem" : "1.5rem",
+            WebkitTapHighlightColor: "transparent",
+          }}
+        >
+          ›
         </div>
       </div>
 

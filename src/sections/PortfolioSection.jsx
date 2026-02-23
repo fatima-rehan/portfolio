@@ -63,6 +63,7 @@ export function PortfolioSection({ isMobile }) {
           gap: isMobile ? "14px" : "36px",
           maxWidth: "1100px",
           width: "100%",
+          alignItems: "start",
         }}
       >
         {PROJECTS.map((project, idx) => (
@@ -76,6 +77,7 @@ export function PortfolioSection({ isMobile }) {
               display: "flex",
               flexDirection: "column",
               alignItems: "center",
+              alignSelf: "start",
               gap: isMobile ? "8px" : "12px",
               padding: isMobile ? "20px 12px" : "30px 20px",
               borderRadius: "12px",
