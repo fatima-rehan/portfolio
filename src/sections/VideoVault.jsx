@@ -74,7 +74,6 @@ export function VideoVault({ onBack, isMobile }) {
     <div
       style={{
         minHeight: "100vh",
-        minHeight: "100svh",
         background: "#0a0a0a",
         display: "flex",
         flexDirection: "column",
@@ -83,6 +82,40 @@ export function VideoVault({ onBack, isMobile }) {
         animation: "vaultPageIn 0.5s ease forwards",
       }}
     >
+      <style>{`
+        .video-seek-wrap input[type="range"] {
+          -webkit-appearance: none;
+          appearance: none;
+        }
+        .video-seek-wrap input[type="range"]::-webkit-slider-thumb {
+          -webkit-appearance: none;
+          width: 14px;
+          height: 14px;
+          border-radius: 50%;
+          background: #e81919;
+          cursor: pointer;
+          opacity: 0;
+          transition: opacity 0.15s ease;
+        }
+        .video-seek-wrap:hover input[type="range"]::-webkit-slider-thumb,
+        .video-seek-wrap input[type="range"]:active::-webkit-slider-thumb {
+          opacity: 1;
+        }
+        .video-seek-wrap input[type="range"]::-moz-range-thumb {
+          width: 14px;
+          height: 14px;
+          border-radius: 50%;
+          background: #e81919;
+          border: none;
+          cursor: pointer;
+          opacity: 0;
+          transition: opacity 0.15s ease;
+        }
+        .video-seek-wrap:hover input[type="range"]::-moz-range-thumb,
+        .video-seek-wrap input[type="range"]:active::-moz-range-thumb {
+          opacity: 1;
+        }
+      `}</style>
       <div
         style={{
           display: "flex",
@@ -250,6 +283,7 @@ export function VideoVault({ onBack, isMobile }) {
                   }}
                 />
                 <div
+                  className="video-seek-wrap"
                   style={{
                     position: "absolute",
                     bottom: 0,

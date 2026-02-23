@@ -31,7 +31,7 @@ export function PortfolioSection({ isMobile }) {
         justifyContent: "center",
         position: "relative",
         zIndex: 2,
-        padding: isMobile ? "28px 16px 50px" : "36px 20px 70px",
+        padding: isMobile ? "16px 16px 50px" : "24px 20px 70px",
       }}
     >
       <h2
