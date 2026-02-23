@@ -85,7 +85,8 @@ export const ABOUT_LINES = [
     "REACT,",
     "NEXT.JS,", 
     "FASTAPI,", 
-    "Tailwind CSS"
+    "Tailwind CSS",
+    ""
 ];
 
 export const CONTACT_EMAIL = "fatimarehan029@gmail.com";
