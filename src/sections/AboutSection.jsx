@@ -5,13 +5,13 @@ export function AboutSection({ isMobile }) {
     <section
       id="about"
       style={{
-        minHeight: "100vh",
+        minHeight: isMobile ? "auto" : "70vh",
         display: "flex",
         alignItems: "center",
         justifyContent: "center",
         position: "relative",
         zIndex: 2,
-        padding: isMobile ? "40px 16px" : "60px 20px",
+        padding: isMobile ? "32px 16px" : "40px 20px",
       }}
     >
       <div

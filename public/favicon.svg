@@ -1,10 +1,3 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" fill="none">
-  <rect x="4" y="10" width="24" height="14" rx="3" fill="#1a1a1a" stroke="#e81919" stroke-width="1.5"/>
-  <circle cx="16" cy="17" r="5" fill="#2a2a2a" stroke="#e81919" stroke-width="1.2"/>
-  <circle cx="16" cy="17" r="2.5" fill="#e81919"/>
-  <rect x="20" y="12" width="4" height="2" rx="0.5" fill="#e81919" opacity="0.8"/>
-  <path d="M8 10V8c0-1 1-2 2-2h4l1.5 2H8z" fill="#333" stroke="#e81919" stroke-width="1"/>
-  <rect x="6" y="12" width="2" height="1" rx="0.3" fill="#444"/>
-  <rect x="6" y="14" width="2" height="1" rx="0.3" fill="#444"/>
-  <rect x="6" y="16" width="2" height="1" rx="0.3" fill="#444"/>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32">
+  <path fill="#e81919" d="M16 28c-.3 0-.6-.1-.8-.3C14.2 26.5 4 17.3 4 11.5 4 7.9 6.9 5 10.5 5c2.8 0 5.5 1.7 5.5 1.7S18.2 5 21 5C24.6 5 28 7.9 28 11.5c0 5.8-10.2 15-11.2 16.2-.2.2-.5.3-.8.3z"/>
 </svg>

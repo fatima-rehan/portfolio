@@ -31,7 +31,7 @@ export function PortfolioSection({ isMobile }) {
         justifyContent: "center",
         position: "relative",
         zIndex: 2,
-        padding: isMobile ? "50px 16px" : "80px 20px",
+        padding: isMobile ? "50px 16px" : "70px 20px",
       }}
     >
       <h2
@@ -43,6 +43,12 @@ export function PortfolioSection({ isMobile }) {
           opacity: visible ? 1 : 0,
           transform: visible ? "translateY(0)" : "translateY(20px)",
           transition: "all 0.6s ease",
+          width: "100%",
+          maxWidth: "1100px",
+          textAlign: "left",
+          paddingLeft: isMobile ? "16px" : "20px",
+          paddingRight: isMobile ? "16px" : "20px",
+          boxSizing: "border-box",
         }}
       >
         Portfolio.
@@ -53,9 +59,9 @@ export function PortfolioSection({ isMobile }) {
           display: "grid",
           gridTemplateColumns: isMobile
             ? "repeat(2, 1fr)"
-            : "repeat(auto-fit, minmax(200px, 1fr))",
-          gap: isMobile ? "12px" : "30px",
-          maxWidth: "900px",
+            : "repeat(auto-fit, minmax(240px, 1fr))",
+          gap: isMobile ? "14px" : "36px",
+          maxWidth: "1100px",
           width: "100%",
         }}
       >

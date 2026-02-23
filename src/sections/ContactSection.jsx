@@ -5,39 +5,44 @@ export function ContactSection({ isMobile }) {
     <section
       id="contact"
       style={{
-        padding: isMobile ? "40px 16px 30px" : "60px 20px 40px",
+        padding: isMobile ? "32px 16px 30px" : "40px 20px 40px",
         position: "relative",
         zIndex: 2,
       }}
     >
-      <h2
-        style={{
-          fontFamily: "'Dancing Script', cursive",
-          fontSize: isMobile ? "2.2rem" : "3rem",
-          color: "#e81919",
-          marginBottom: isMobile ? "16px" : "25px",
-          marginLeft: isMobile ? "0" : "clamp(0px, 3vw, 40px)",
-          textAlign: isMobile ? "center" : "left",
-        }}
-      >
-        Contact me!
-      </h2>
-
       <div
         style={{
-          background: "rgba(20,20,20,0.8)",
-          borderRadius: "12px",
-          padding: isMobile ? "20px 16px" : "25px clamp(15px, 3vw, 40px)",
-          display: "flex",
-          flexDirection: isMobile ? "column" : "row",
-          alignItems: "center",
-          gap: isMobile ? "12px" : "20px",
-          flexWrap: "wrap",
           maxWidth: "1000px",
           margin: "0 auto",
-          border: "1px solid rgba(255,255,255,0.05)",
         }}
       >
+        <h2
+          style={{
+            fontFamily: "'Dancing Script', cursive",
+            fontSize: isMobile ? "2.2rem" : "3rem",
+            color: "#e81919",
+            marginBottom: isMobile ? "16px" : "25px",
+            paddingLeft: isMobile ? "0" : "clamp(15px, 3vw, 40px)",
+            paddingRight: isMobile ? "0" : "clamp(15px, 3vw, 40px)",
+            textAlign: isMobile ? "center" : "left",
+          }}
+        >
+          Contact me!
+        </h2>
+
+        <div
+          style={{
+            background: "rgba(20,20,20,0.8)",
+            borderRadius: "12px",
+            padding: isMobile ? "20px 16px" : "25px clamp(15px, 3vw, 40px)",
+            display: "flex",
+            flexDirection: isMobile ? "column" : "row",
+            alignItems: "center",
+            gap: isMobile ? "12px" : "20px",
+            flexWrap: "wrap",
+            border: "1px solid rgba(255,255,255,0.05)",
+          }}
+        >
         <div
           style={{
             display: "flex",
@@ -91,6 +96,7 @@ export function ContactSection({ isMobile }) {
         >
           {CONTACT_EMAIL}
         </a>
+      </div>
       </div>
     </section>
   );

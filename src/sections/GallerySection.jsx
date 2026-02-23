@@ -24,13 +24,13 @@ export function GallerySection({ onOpenVault, isMobile }) {
     <section
       id="gallery"
       style={{
-        minHeight: isMobile ? "auto" : "100vh",
+        minHeight: isMobile ? "auto" : "70vh",
         display: "flex",
         flexDirection: "column",
         justifyContent: "center",
         position: "relative",
         zIndex: 2,
-        padding: isMobile ? "40px 0" : "60px 0",
+        padding: isMobile ? "32px 0" : "40px 0",
       }}
     >
       <h2
