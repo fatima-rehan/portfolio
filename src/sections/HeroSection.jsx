@@ -136,38 +136,23 @@ export function HeroSection({ onNavigate, isMobile }) {
       >
         {!nameSettled ? (
           <div
+            className="loading-bar-track"
             style={{
-              display: "flex",
-              gap: "5px",
-              justifyContent: "center",
-              alignItems: "center",
+              width: isMobile ? "120px" : "180px",
+              height: "4px",
+              borderRadius: "2px",
+              background: "rgba(168,168,168,0.2)",
+              overflow: "hidden",
             }}
           >
-            <span
+            <div
+              className="loading-bar-fill"
               style={{
-                width: "6px",
-                height: "6px",
-                borderRadius: "50%",
+                height: "100%",
+                width: 0,
+                borderRadius: "2px",
                 background: "#a8a8a8",
-                animation: "dotPulse 1.4s ease-in-out 0s infinite both",
-              }}
-            />
-            <span
-              style={{
-                width: "6px",
-                height: "6px",
-                borderRadius: "50%",
-                background: "#a8a8a8",
-                animation: "dotPulse 1.4s ease-in-out 0.2s infinite both",
-              }}
-            />
-            <span
-              style={{
-                width: "6px",
-                height: "6px",
-                borderRadius: "50%",
-                background: "#a8a8a8",
-                animation: "dotPulse 1.4s ease-in-out 0.4s infinite both",
+                animation: "loadingBarFill 3s ease-out forwards",
               }}
             />
           </div>
