@@ -144,7 +144,17 @@ export default function FatimaRehanPortfolio() {
 
       <div style={{ position: "relative", minHeight: "100vh", background: "#0a0a0a" }}>
         {page === "vault" ? (
-          <VideoVault onBack={() => setPage("main")} isMobile={isMobile} />
+          <VideoVault
+            onBack={() => {
+              setPage("main");
+              requestAnimationFrame(() => {
+                requestAnimationFrame(() => {
+                  document.getElementById("gallery")?.scrollIntoView({ behavior: "smooth" });
+                });
+              });
+            }}
+            isMobile={isMobile}
+          />
         ) : (
           <>
             <HeroSection onNavigate={navigateTo} isMobile={isMobile} />
