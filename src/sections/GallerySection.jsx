@@ -4,6 +4,7 @@ import SilverIcon from "../shared/SilverIcon.jsx";
 
 export function GallerySection({ onOpenVault, isMobile }) {
   const scrollRef = useRef(null);
+  const userScrollingRef = useRef(false);
 
   useEffect(() => {
     const el = scrollRef.current;
@@ -11,14 +12,36 @@ export function GallerySection({ onOpenVault, isMobile }) {
     let pos = 0;
     const speed = isMobile ? 0.3 : 0.5;
     const scroll = () => {
-      pos += speed;
-      if (pos >= el.scrollWidth / 2) pos = 0;
-      el.scrollLeft = pos;
+      if (!userScrollingRef.current) {
+        pos += speed;
+        if (pos >= el.scrollWidth / 2) pos = 0;
+        el.scrollLeft = pos;
+      }
       requestAnimationFrame(scroll);
     };
     const id = requestAnimationFrame(scroll);
     return () => cancelAnimationFrame(id);
   }, [isMobile]);
+
+  const handleTouchStart = () => {
+    userScrollingRef.current = true;
+  };
+  const handleTouchEnd = () => {
+    setTimeout(() => {
+      userScrollingRef.current = false;
+    }, 400);
+  };
+  const handleMouseDown = () => {
+    userScrollingRef.current = true;
+  };
+  const handleMouseUp = () => {
+    setTimeout(() => {
+      userScrollingRef.current = false;
+    }, 400);
+  };
+  const handleMouseLeave = () => {
+    userScrollingRef.current = false;
+  };
 
   return (
     <section
@@ -48,12 +71,22 @@ export function GallerySection({ onOpenVault, isMobile }) {
       <div style={{ position: "relative" }}>
         <div
           ref={scrollRef}
+          className="gallery-strip"
+          onTouchStart={handleTouchStart}
+          onTouchEnd={handleTouchEnd}
+          onTouchCancel={handleTouchEnd}
+          onMouseDown={handleMouseDown}
+          onMouseUp={handleMouseUp}
+          onMouseLeave={handleMouseLeave}
           style={{
             display: "flex",
             width: "100vw",
-            overflowX: "hidden",
+            overflowX: "auto",
             overflowY: "hidden",
             background: "#000",
+            WebkitOverflowScrolling: "touch",
+            scrollbarWidth: "none",
+            msOverflowStyle: "none",
           }}
         >
           {[...GALLERY_IMAGES, ...GALLERY_IMAGES, ...GALLERY_IMAGES].map(

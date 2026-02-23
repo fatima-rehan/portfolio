@@ -115,6 +115,10 @@ export default function FatimaRehanPortfolio() {
           opacity: 1 !important;
         }
 
+        .gallery-strip::-webkit-scrollbar {
+          display: none;
+        }
+
         .hero-nav-icon:active .hero-icon-inner {
           transform: scale(0.9) !important;
         }

@@ -42,9 +42,9 @@ export function HeroSection({ onNavigate, isMobile }) {
   }, [nameSettled]);
 
   const icons = [
-    { label: "portfolio", target: "portfolio" },
     { label: "resume", target: "about", url: "/FatimaRehan_Resume.pdf" },
     { label: "gallery", target: "gallery" },
+    { label: "portfolio", target: "portfolio" },
     { label: "contact", target: "contact" },
   ];
 
