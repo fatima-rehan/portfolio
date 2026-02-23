@@ -1,4 +1,4 @@
-import { useState, useCallback, useEffect } from "react";
+import { useState, useCallback } from "react";
 import { useIsMobile } from "../hooks/useIsMobile.js";
 import { useSilverCursor } from "../hooks/useSilverCursor.js";
 import { FilmGrain } from "../overlays/FilmGrain.jsx";
@@ -14,13 +14,8 @@ import { ContactSection } from "../sections/ContactSection.jsx";
 
 export default function FatimaRehanPortfolio() {
   const [page, setPage] = useState("main");
-  const [showFlashFrame, setShowFlashFrame] = useState(true);
   const isMobile = useIsMobile();
 
-  useEffect(() => {
-    const t = setTimeout(() => setShowFlashFrame(false), 80);
-    return () => clearTimeout(t);
-  }, []);
   useSilverCursor(isMobile);
 
   const navigateTo = useCallback((target) => {
@@ -111,11 +106,6 @@ export default function FatimaRehanPortfolio() {
           100% { width: 100%; }
         }
 
-        @keyframes flashFrame {
-          0% { opacity: 1; }
-          100% { opacity: 0; }
-        }
-
         ::-webkit-scrollbar { width: 6px; }
         ::-webkit-scrollbar-track { background: #0a0a0a; }
         ::-webkit-scrollbar-thumb { background: #333; border-radius: 3px; }
@@ -147,18 +137,6 @@ export default function FatimaRehanPortfolio() {
         }
       `}</style>
 
-      {showFlashFrame && (
-        <div
-          style={{
-            position: "fixed",
-            inset: 0,
-            background: "#fff",
-            pointerEvents: "none",
-            zIndex: 99999,
-            animation: "flashFrame 0.08s ease-out forwards",
-          }}
-        />
-      )}
       <FilmGrain isMobile={isMobile} />
       <BackgroundStatic isMobile={isMobile} />
       <ScanLines />
