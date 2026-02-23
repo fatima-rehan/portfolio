@@ -61,8 +61,6 @@ export const GALLERY_IMAGES = [
     { caption: "CONU Hacks 2025", src: "/images/gallery/conu2.jpg" },
     { caption: "Lamp concert", src: "/images/gallery/fit.jpg" },
     { caption: "Model UN", src: "/images/gallery/modelun.jpg" },
-    { caption: "Fatima", src: "/images/gallery/fatima.JPG" },
-    { caption: "Fatima", src: "/images/gallery/fatima2.JPG" },
     { caption: "GDG event", src: "/images/gallery/gdg1.JPEG" },
     { caption: "GDG event", src: "/images/gallery/gdg2.JPEG" },
     { caption: "GDG event", src: "/images/gallery/gdg3.JPEG" },

@@ -51,6 +51,7 @@ export function FilmGrain({ isMobile }) {
         pointerEvents: "none",
         zIndex: 9999,
         mixBlendMode: "overlay",
+        opacity: 0.5,
       }}
     />
   );
