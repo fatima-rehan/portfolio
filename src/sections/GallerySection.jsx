@@ -30,7 +30,7 @@ export function GallerySection({ onOpenVault, isMobile }) {
         justifyContent: "center",
         position: "relative",
         zIndex: 2,
-        padding: isMobile ? "32px 0" : "40px 0",
+        padding: isMobile ? "24px 0 16px" : "28px 0 20px",
       }}
     >
       <h2

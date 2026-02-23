@@ -5,13 +5,18 @@ export function VideoVault({ onBack, isMobile }) {
   const [currentVideo, setCurrentVideo] = useState(0);
   const [isPlaying, setIsPlaying] = useState(false);
   const [slideKey, setSlideKey] = useState(0);
+  const [progress, setProgress] = useState(0);
+  const [duration, setDuration] = useState(0);
   const touchStartX = useRef(0);
+  const wasPlayingBeforeSeek = useRef(false);
   const videoRef = useRef(null);
 
   const goToVideo = (next) => {
     setSlideKey((k) => k + 1);
     setCurrentVideo(next);
     setIsPlaying(false);
+    setProgress(0);
+    setDuration(0);
   };
 
   const handlePlayPause = () => {
@@ -22,6 +27,29 @@ export function VideoVault({ onBack, isMobile }) {
       videoRef.current.play();
     }
     setIsPlaying(!isPlaying);
+  };
+
+  const handleTimeUpdate = () => {
+    if (!videoRef.current) return;
+    const v = videoRef.current;
+    if (v.duration && isFinite(v.duration)) {
+      setProgress((v.currentTime / v.duration) * 100);
+      setDuration(v.duration);
+    }
+  };
+
+  const handleLoadedMetadata = () => {
+    if (!videoRef.current) return;
+    const v = videoRef.current;
+    if (v.duration && isFinite(v.duration)) setDuration(v.duration);
+  };
+
+  const handleSeek = (e) => {
+    const value = Number(e.target.value);
+    setProgress(value);
+    if (videoRef.current && duration) {
+      videoRef.current.currentTime = (value / 100) * duration;
+    }
   };
 
   const handleTouchStart = (e) => {
@@ -202,21 +230,73 @@ export function VideoVault({ onBack, isMobile }) {
             }}
           >
             {hasVideo ? (
-              <video
-                ref={videoRef}
-                key={currentVideo}
-                src={videoData.src}
-                onPlay={() => setIsPlaying(true)}
-                onPause={() => setIsPlaying(false)}
-                onEnded={() => setIsPlaying(false)}
-                style={{
-                  position: "absolute",
-                  inset: 0,
-                  width: "100%",
-                  height: "100%",
-                  objectFit: "contain",
-                }}
-              />
+              <>
+                <video
+                  ref={videoRef}
+                  key={currentVideo}
+                  src={videoData.src}
+                  onPlay={() => setIsPlaying(true)}
+                  onPause={() => setIsPlaying(false)}
+                  onEnded={() => setIsPlaying(false)}
+                  onTimeUpdate={handleTimeUpdate}
+                  onLoadedMetadata={handleLoadedMetadata}
+                  onDurationChange={handleLoadedMetadata}
+                  style={{
+                    position: "absolute",
+                    inset: 0,
+                    width: "100%",
+                    height: "100%",
+                    objectFit: "contain",
+                  }}
+                />
+                <div
+                  style={{
+                    position: "absolute",
+                    bottom: 0,
+                    left: 0,
+                    right: 0,
+                    height: "28px",
+                    background: "linear-gradient(transparent, rgba(0,0,0,0.85))",
+                    display: "flex",
+                    alignItems: "center",
+                    padding: "0 10px 6px",
+                    zIndex: 4,
+                  }}
+                  onClick={(e) => e.stopPropagation()}
+                >
+                  <input
+                    type="range"
+                    min={0}
+                    max={100}
+                    value={progress}
+                    onChange={handleSeek}
+                    onMouseDown={() => {
+                      wasPlayingBeforeSeek.current = isPlaying;
+                      videoRef.current?.pause();
+                    }}
+                    onMouseUp={() => {
+                      if (wasPlayingBeforeSeek.current) videoRef.current?.play();
+                    }}
+                    onTouchStart={() => {
+                      wasPlayingBeforeSeek.current = isPlaying;
+                      videoRef.current?.pause();
+                    }}
+                    onTouchEnd={() => {
+                      if (wasPlayingBeforeSeek.current) videoRef.current?.play();
+                    }}
+                    style={{
+                      width: "100%",
+                      height: "6px",
+                      accentColor: "#e81919",
+                      cursor: "pointer",
+                      WebkitAppearance: "none",
+                      appearance: "none",
+                      background: "rgba(255,255,255,0.2)",
+                      borderRadius: "3px",
+                    }}
+                  />
+                </div>
+              </>
             ) : (
               <>
                 <span
