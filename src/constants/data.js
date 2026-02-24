@@ -92,7 +92,7 @@ export const ABOUT_LINES = [
 export const CONTACT_EMAIL = "fatimarehan029@gmail.com";
 
 export const SAMPLE_VIDEOS = [
-    { title: "SHAD Application video", src: "/videos/shad.mp4", color: "#1a1a2e" },
+    { title: "SHAD Application video - 2022", src: "/videos/shad.mp4", color: "#1a1a2e" },
     { title: "Day in the Life - dec 22", src: "/videos/dec22.mp4", color: "#0f3460" },
     { title: "Project Demo: Argus", src: "/videos/argus_demo.mp4", color: "#1a1a2e" },
 ];
