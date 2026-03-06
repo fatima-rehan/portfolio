@@ -1,5 +1,16 @@
 export const PROJECTS = [
     {
+        name: "LittleToronto",
+        icon: "📍",
+        description: "An interactive web app showcasing Toronto's multicultural neighbourhoods through an interactive map, AI neighbourhood guide, and immersive video overlays.",
+        highlights: [
+            "Built a React app with Leaflet and OpenStreetMap featuring custom markers, tooltips, and a Toronto-bounded viewport.",
+            "Integrated Gemini to recommend neighbourhoods from natural language location + mood prompts, with a keyword-based local fallback for reliability."
+        ],
+        stack: ["React", "Leaflet", "OpenStreetMap", "Gemini"],
+        website: ""
+    },
+    {
         name: "Argus",
         icon: "🌐",
         description: "A full-stack government intelligence platform using Next.js, React, and FastAPI to surface early-stage government opportunity signals.",
