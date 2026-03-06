@@ -8,7 +8,7 @@ export const PROJECTS = [
             "Integrated Gemini to recommend neighbourhoods from natural language location + mood prompts, with a keyword-based local fallback for reliability."
         ],
         stack: ["React", "Leaflet", "OpenStreetMap", "Gemini"],
-        website: ""
+        website: "https://little-toronto.vercel.app/"
     },
     {
         name: "Argus",
