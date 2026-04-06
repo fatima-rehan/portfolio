@@ -22,3 +22,6 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
+
+# > GitHub 100MB limit; keep local or host elsewhere
+public/videos/stillcity.mp4
