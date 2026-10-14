@@ -123,8 +123,12 @@ export function PortfolioSection({ isMobile }) {
                 href={project.website}
                 target="_blank"
                 rel="noopener noreferrer"
+                draggable={false}
                 onClick={(e) => e.stopPropagation()}
                 style={{
+                  display: "inline-block",
+                  padding: "8px 14px",
+                  margin: "-8px -14px",
                   fontFamily: "'Space Mono', monospace",
                   fontSize: isMobile ? "0.65rem" : "0.7rem",
                   color: "#e81919",
