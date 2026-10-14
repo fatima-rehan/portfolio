@@ -1,5 +1,16 @@
 export const PROJECTS = [
     {
+        name: "CafeCorder",
+        icon: "☕",
+        description: "A full-stack logbook for cafe visits: log orders, prices, ratings and study-spot details, add photos, and share favourites on a public feed and map.",
+        highlights: [
+            "Built a Spring Boot REST API with stateless JWT auth, BCrypt hashing, and a layered controller-service-repository design backed by PostgreSQL (Supabase).",
+            "Developed a React + Vite frontend with an in-browser photo cropper, a top-rated cafe leaderboard, and a Leaflet map of shared cafes geocoded via OpenStreetMap."
+        ],
+        stack: ["Java", "Spring Boot", "PostgreSQL", "React", "Leaflet"],
+        website: "https://cafecorder.vercel.app/"
+    },
+    {
         name: "LittleToronto",
         icon: "📍",
         description: "An interactive web app showcasing Toronto's multicultural neighbourhoods through an interactive map, AI neighbourhood guide, and immersive video overlays.",
@@ -96,6 +107,7 @@ export const ABOUT_LINES = [
     "REACT,",
     "NEXT.JS,", 
     "FASTAPI,", 
+    "SPRING BOOT,",
     "Tailwind CSS",
     ""
 ];
