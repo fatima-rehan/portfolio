@@ -76,9 +76,11 @@ export const CONTACT_LINKS = [
 
 export const GALLERY_IMAGES = [
     { caption: "CSCU year reps", src: "/images/gallery/cscu.jpg" },
+    { caption: "cscu '26 team", src: "/images/gallery/CSCU_26.JPG" },
+    { caption: "cscu '26 execs", src: "/images/gallery/CSCU_execs.JPG", objectPosition: "right 10%" },
     { caption: "Lab research", src: "/images/gallery/lab.jpg" },
     { caption: "UOtta Hacks 2025", src: "/images/gallery/monkeysee.jpg" },
-    { caption: "SunFi team", src: "/images/gallery/conu1.jpg" },
+    { caption: "Palestine protest", src: "/images/gallery/palestine.JPG" },
     { caption: "Alberta", src: "/images/gallery/alberta.jpg" },
     { caption: "CONU Hacks 2025", src: "/images/gallery/conu2.jpg" },
     { caption: "Lamp concert", src: "/images/gallery/fit.jpg" },
@@ -88,8 +90,8 @@ export const GALLERY_IMAGES = [
     { caption: "GDG event", src: "/images/gallery/gdg3.JPEG" },
     { caption: "GDG event", src: "/images/gallery/gdg4.JPEG" },
     { caption: "GDG event", src: "/images/gallery/gdg5.JPEG" },
-    { caption: "SHAD", src: "/images/gallery/shad.JPG" },
-    { caption: "Palestine protest", src: "/images/gallery/palestine.JPG" },
+    { caption: "SHAD", src: "/images/gallery/shad.JPG", objectPosition: "center 40%" },
+    { caption: "SunFi team", src: "/images/gallery/conu1.jpg" },
     { caption: "TechNova Win", src: "/images/gallery/technova.JPG" },
     { caption: "GDG Prize Winner", src: "/images/gallery/prize.JPEG" },
 ];
@@ -115,8 +117,8 @@ export const ABOUT_LINES = [
 export const CONTACT_EMAIL = "fatimarehan029@gmail.com";
 
 export const SAMPLE_VIDEOS = [
-    { title: "SHAD Application video - 2022", src: "/videos/shad.mp4", color: "#1a1a2e" },
-    { title: "Day in the Life - dec 22", src: "/videos/dec22.mp4", color: "#0f3460" },
-    { title: "Project Demo: Argus", src: "/videos/argus_demo.mp4", color: "#1a1a2e" },
     { title: "Video Art Production Final - Still City", src: "https://pub-367435487947420896a3b02adaef4837.r2.dev/stillcity.mp4", color: "#1a1a2e" },
+    { title: "SHAD Application video - 2022", src: "/videos/shad.mp4", color: "#1a1a2e" },
+    { title: "Project Demo: Argus", src: "/videos/argus_demo.mp4", color: "#1a1a2e" },
+    { title: "Day in the Life - dec 22", src: "/videos/dec22.mp4", color: "#0f3460" },
 ];

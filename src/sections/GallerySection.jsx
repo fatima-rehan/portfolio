@@ -186,6 +186,7 @@ export function GallerySection({ onOpenVault, isMobile }) {
                           width: "100%",
                           height: "100%",
                           objectFit: "cover",
+                          objectPosition: img.objectPosition || "center",
                         }}
                       />
                     ) : (
