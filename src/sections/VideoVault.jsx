@@ -389,64 +389,6 @@ export function VideoVault({ onBack, isMobile }) {
                 {videoData.title}
               </span>
             )}
-            {isPlaying && (
-              <>
-                <div
-                  style={{
-                    position: "absolute",
-                    bottom: "10px",
-                    left: "10px",
-                    display: "flex",
-                    gap: "3px",
-                    alignItems: "flex-end",
-                    zIndex: 3,
-                  }}
-                >
-                  {[0, 1, 2, 3].map((b) => (
-                    <div
-                      key={b}
-                      style={{
-                        width: "4px",
-                        background: "#e81919",
-                        animation: `audioBar 0.5s ease ${b * 0.1}s infinite alternate`,
-                        height: "10px",
-                        borderRadius: "1px",
-                      }}
-                    />
-                  ))}
-                </div>
-                <div
-                  style={{
-                    position: "absolute",
-                    top: "10px",
-                    right: "10px",
-                    display: "flex",
-                    alignItems: "center",
-                    gap: "6px",
-                    animation: "blink 1s infinite",
-                    zIndex: 3,
-                  }}
-                >
-                  <div
-                    style={{
-                      width: "8px",
-                      height: "8px",
-                      borderRadius: "50%",
-                      background: "#e81919",
-                    }}
-                  />
-                  <span
-                    style={{
-                      fontFamily: "'Space Mono', monospace",
-                      fontSize: "0.7rem",
-                      color: "#e81919",
-                    }}
-                  >
-                    REC
-                  </span>
-                </div>
-              </>
-            )}
             <div
               style={{
                 position: "absolute",

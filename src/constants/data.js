@@ -68,16 +68,16 @@ export const PROJECTS = [
 ];
 
 export const CONTACT_LINKS = [
-    { label: "Instagram", url: "https://www.instagram.com/fatimarehxn/" },
     { label: "LinkedIn", url: "https://www.linkedin.com/in/fatima-rehan29/" },
     { label: "GitHub", url: "https://github.com/fatima-rehan" },
     { label: "Twitter", url: "https://x.com/FatimaRehxn" },
+    { label: "Instagram", url: "https://www.instagram.com/fatimarehxn/" },
 ];
 
 export const GALLERY_IMAGES = [
     { caption: "CSCU year reps", src: "/images/gallery/cscu.jpg" },
     { caption: "cscu '26 team", src: "/images/gallery/CSCU_26.JPG" },
-    { caption: "cscu '26 execs", src: "/images/gallery/CSCU_execs.JPG", objectPosition: "right 10%" },
+    { caption: "cscu '26 execs", src: "/images/gallery/CSCU_execs.JPG", objectPosition: "100% 4%" },
     { caption: "Lab research", src: "/images/gallery/lab.jpg" },
     { caption: "UOtta Hacks 2025", src: "/images/gallery/monkeysee.jpg" },
     { caption: "Palestine protest", src: "/images/gallery/palestine.JPG" },
@@ -98,19 +98,22 @@ export const GALLERY_IMAGES = [
 
 export const ABOUT_LINES = [
     "THIRD YEAR COMP SCI STUDENT",
-    "TORONTO MET U",
-    "COMP SCI COURSE UNION 3X YEAR REP",
+    "TORONTO MET U (CO-OP)",
+    "",
+    "CSCU 3X YEAR REP",
+    "GDG CORPORATE RELATIONS DIRECTOR",
     "SHAD CARLETON '22",
     "",
-    "PYTHON, JAVA,",
-    "HTML/CSS, JAVASCRIPT,",
-    "SQL",
+    "AI DATA TRAINER, COHERE",
+    "CODESENSEI, CODE NINJAS",
     "",
-    "REACT,",
-    "NEXT.JS,", 
-    "FASTAPI,", 
-    "SPRING BOOT,",
-    "Tailwind CSS",
+    "JAVA, PYTHON, C,",
+    "JAVASCRIPT, SQL,",
+    "HTML/CSS, BASH",
+    "",
+    "REACT, NEXT.JS,",
+    "SPRING BOOT, FASTAPI,",
+    "FLASK, TAILWIND CSS",
     ""
 ];
 

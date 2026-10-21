@@ -84,8 +84,8 @@ export function AboutSection({ isMobile }) {
           }}
         >
           {[
-            { src: "/images/gallery/fatima.JPG", rotation: 2 },
-            { src: "/images/gallery/fatima2.JPG", rotation: -1.5 },
+            { src: "/images/gallery/fatima.JPG", rotation: 2, position: "40% 68%", scale: 1.35 },
+            { src: "/images/gallery/fatima2.JPG", rotation: -1.5, position: "center 68%" },
           ].map((photo, i) => (
             <div
               key={i}
@@ -99,18 +99,29 @@ export function AboutSection({ isMobile }) {
                 width: isMobile ? "140px" : "220px",
               }}
             >
-              <img
-                src={photo.src}
-                alt="Fatima"
+              <div
                 style={{
                   width: "100%",
                   height: isMobile ? "130px" : "200px",
-                  objectFit: "cover",
+                  overflow: "hidden",
                   borderRadius: "2px",
-                  display: "block",
-                  filter: "sepia(0.2) contrast(1.1)",
                 }}
-              />
+              >
+                <img
+                  src={photo.src}
+                  alt="Fatima"
+                  style={{
+                    width: "100%",
+                    height: "100%",
+                    objectFit: "cover",
+                    objectPosition: photo.position,
+                    transform: photo.scale ? `scale(${photo.scale})` : undefined,
+                    transformOrigin: photo.position,
+                    display: "block",
+                    filter: "sepia(0.2) contrast(1.1)",
+                  }}
+                />
+              </div>
             </div>
           ))}
         </div>

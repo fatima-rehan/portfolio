@@ -71,15 +71,6 @@ export default function FatimaRehanPortfolio() {
           0%, 100% { transform: translateY(0); }
           50% { transform: translateY(8px); }
         }
-        @keyframes audioBar {
-          from { height: 4px; }
-          to { height: 18px; }
-        }
-        @keyframes blink {
-          0%, 100% { opacity: 1; }
-          50% { opacity: 0; }
-        }
-
         @keyframes vaultSlideIn {
           from { opacity: 0; transform: translateX(40px); }
           to { opacity: 1; transform: translateX(0); }

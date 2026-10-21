@@ -20,7 +20,7 @@ export function HeroSection({ onNavigate, isMobile }) {
       const timer = setTimeout(() => {
         setFontIndex((prev) => (prev + 1) % fonts.length);
         setFlashCount((c) => c + 1);
-      }, 200 + flashCount * 50);
+      }, 80 + flashCount * 15);
       return () => clearTimeout(timer);
     } else {
       setFontIndex(3);
@@ -153,7 +153,7 @@ export function HeroSection({ onNavigate, isMobile }) {
                 width: 0,
                 borderRadius: "2px",
                 background: "#a8a8a8",
-                animation: "loadingBarFill 3s ease-out forwards",
+                animation: "loadingBarFill 1.1s ease-out forwards",
               }}
             />
           </div>
